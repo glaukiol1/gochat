@@ -10,12 +10,11 @@ import (
 
 func main() {
 	go func() { serverStart() }()
+	fmt.Print("\nHost to connect to: ")
+	var host string
+	fmt.Scanln(&host)
 	for {
-		var host string
 		var message string
-		fmt.Print("\nHost to send to: ")
-		fmt.Scanln(&host)
-		fmt.Print("\nMessage: ")
 		fmt.Scanln(&message)
 		tcpserver.SendMessage(message, host)
 	}
