@@ -15,7 +15,7 @@ func HandleNewMsg(c net.Conn) {
 			return
 		}
 		msg := strings.TrimSpace(string(netData))
-		println("\nNew message! " + c.RemoteAddr().String() + ": " + msg)
+		println("New Msg: " + msg)
 		c.Close()
 		break
 	}
