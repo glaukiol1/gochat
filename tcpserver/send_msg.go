@@ -17,5 +17,4 @@ func SendMessage(message, host string) {
 	c.Write([]byte(message + "\n"))
 	bufio.NewReader(c).ReadString('\n')
 
-	println("Me: " + message)
 }
