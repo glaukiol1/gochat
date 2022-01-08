@@ -14,7 +14,7 @@ func HandleNewMsg(c net.Conn) {
 			fmt.Println(err)
 			return
 		}
-		msg := strings.TrimSpace(string(netData))
+		msg := strings.ReplaceAll(strings.TrimSpace(string(netData)), "-", " ")
 		println("New Msg: " + msg)
 		c.Close()
 		break
