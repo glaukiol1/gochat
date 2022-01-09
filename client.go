@@ -1,6 +1,7 @@
 package main
 
 import (
+	"bufio"
 	"fmt"
 	"net"
 	"os"
@@ -14,9 +15,9 @@ func main() {
 	var host string
 	fmt.Scanln(&host)
 	for {
-		var message string
-		fmt.Scanln(&message)
-		tcpserver.SendMessage(message, host)
+		scanner := bufio.NewScanner(os.Stdin)
+		scanner.Scan()
+		tcpserver.SendMessage(scanner.Text(), host)
 	}
 }
 

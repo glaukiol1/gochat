@@ -4,7 +4,6 @@ import (
 	"bufio"
 	"fmt"
 	"net"
-	"strings"
 )
 
 func SendMessage(message, host string) {
@@ -15,7 +14,7 @@ func SendMessage(message, host string) {
 		return
 	}
 
-	c.Write([]byte(strings.ReplaceAll(message, " ", "-") + "\n"))
+	c.Write([]byte(message + "\n"))
 	bufio.NewReader(c).ReadString('\n')
 
 }
